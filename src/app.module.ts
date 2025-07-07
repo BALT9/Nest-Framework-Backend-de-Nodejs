@@ -6,7 +6,7 @@ import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   // estoy importando Task.module.ts 
-  imports: [TasksModule, ProjectsModule],
+  imports: [TasksModule,  ],
   controllers: [AppController],
   providers: [AppService],
 })
