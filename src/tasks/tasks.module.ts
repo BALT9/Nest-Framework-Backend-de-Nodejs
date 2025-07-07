@@ -4,10 +4,8 @@ import { TasksServices } from "./tasks.service";
 
 // un modulo puede contener varios controladores 
 @Module({
-
     controllers: [TaskController],
     providers: [TasksServices]
-    
 })
 
 export class TasksModule{}

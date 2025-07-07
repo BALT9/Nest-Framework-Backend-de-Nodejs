@@ -5,6 +5,22 @@ import { Injectable } from "@nestjs/common";
 export class TasksServices{
     
     getTasks(){
-        return 'tareas desde servicio';
+        return ["tarea1","tarea2","tarea3"];
+    }
+
+    createTasks(){
+        return 'creando tareas..';
+    }
+
+    updateTasks(){
+        return 'modificando tareas..';
+    }
+
+    deleteTasks(){
+        return 'eliminando tareas..';
+    }
+
+    updateTasksStatus(){
+        return 'actualizando tareas..';
     }
 }

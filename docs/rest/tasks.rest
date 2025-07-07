@@ -1,0 +1,13 @@
+GET http://127.0.0.1:3000/tasks
+
+###
+POST http://127.0.0.1:3000/tasks
+
+###
+PUT http://127.0.0.1:3000/tasks
+
+###
+DELETE http://127.0.0.1:3000/tasks
+
+###
+PATCH http://127.0.0.1:3000/tasks
