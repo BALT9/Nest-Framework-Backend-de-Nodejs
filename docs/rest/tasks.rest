@@ -1,7 +1,16 @@
-GET http://127.0.0.1:3000/tasks
+GET http://127.0.0.1:3000/tasks?limite=2
 
 ###
 POST http://127.0.0.1:3000/tasks
+Content-Type: application/json
+
+{
+    "titulo": "tarea 2",
+    "descripcion": "lorem dolor"
+}
+
+###
+GET http://127.0.0.1:3000/tasks/3
 
 ###
 PUT http://127.0.0.1:3000/tasks

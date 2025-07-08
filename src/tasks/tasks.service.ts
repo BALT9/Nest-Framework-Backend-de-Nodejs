@@ -1,15 +1,34 @@
 import { Injectable } from "@nestjs/common";
 
+// interface es para definir un tipo de dato =  objeto user 
+export interface User{
+    "name": string,
+    "age": number
+};
+
 // los servicios se inyectan en los controladores
 @Injectable() 
 export class TasksServices{
-    
-    getTasks(){
-        return ["tarea1","tarea2","tarea3"];
+
+    // array q guardara los datos de tipo any(json)
+    private tasks:any = [];
+
+    // este servicio retornara un objeto de tipo User 
+    getTasks(): User{
+        return this.tasks;
     }
 
-    createTasks(){
-        return 'creando tareas..';
+    createTasks(task:any){
+        console.log(task);
+        this.tasks.push({
+            ...task,
+            id: this.tasks.length + 1,
+        });
+        return task;
+    }
+
+    getTask(id: number){
+        return this.tasks.find(task => task.id === id)
     }
 
     updateTasks(){

@@ -1,5 +1,5 @@
-import { Controller, Delete, Get, Patch, Post, Put } from "@nestjs/common";
-import { TasksServices } from "./tasks.service";
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
+import { TasksServices, User } from "./tasks.service";
 
 @Controller({})
 export class TaskController{
@@ -12,15 +12,23 @@ export class TaskController{
 
     // aqui van las rutas 
     @Get('/tasks')
-    getAllTask(){
+    getAllTasks(@Query() query: any): User{
+        console.log(query);
         // servicio 
         return this.tasksService.getTasks();
     }
 
     @Post('/tasks')
-    createTask(){
+    createTask(@Body() task: any){
         // crear tarea
-        return this.tasksService.createTasks();
+        // console.log(task);
+        return this.tasksService.createTasks(task);
+    }
+
+    @Get('/tasks/:id')
+    getTask(@Param('id') id:string){
+        console.log(id);
+        return this.tasksService.getTask(parseInt(id));
     }
 
     @Put('/tasks')
