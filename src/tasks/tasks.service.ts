@@ -28,7 +28,11 @@ export class TasksServices{
     }
 
     getTask(id: number){
-        return this.tasks.find(task => task.id === id)
+        const taskFound = this.tasks.find(task => task.id === id)
+        if(!taskFound){
+            return "No se encontro la tarea";
+        }
+        return taskFound;
     }
 
     updateTasks(){
