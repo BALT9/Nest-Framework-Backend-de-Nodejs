@@ -14,7 +14,14 @@ Content-Type: application/json
 GET http://127.0.0.1:3000/tasks/3
 
 ###
-PUT http://127.0.0.1:3000/tasks
+PUT http://127.0.0.1:3000/tasks/1
+Content-Type: application/json
+
+{
+    "titulo": "tarea 2",
+    "descripcion": "lorem dolor",
+    "fecha": "13 marzo"
+}
 
 ###
 DELETE http://127.0.0.1:3000/tasks

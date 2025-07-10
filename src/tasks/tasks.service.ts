@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { CreateTaskDto } from "./dto/create-task.dto";
+import { UpdateTaskDto } from "./dto/update-task.dto";
 
 // interface es para definir un tipo de dato =  objeto user 
 export interface User{
@@ -36,8 +37,8 @@ export class TasksServices{
         return taskFound;
     }
 
-    updateTasks(){
-        return 'modificando tareas..';
+    updateTasks(id: number, task: UpdateTaskDto){
+        return task;
     }
 
     deleteTasks(){
