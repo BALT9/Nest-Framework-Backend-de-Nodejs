@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException } from "@nestjs/common";
 
 // interface es para definir un tipo de dato =  objeto user 
 export interface User{
@@ -30,7 +30,7 @@ export class TasksServices{
     getTask(id: number){
         const taskFound = this.tasks.find(task => task.id === id)
         if(!taskFound){
-            return "No se encontro la tarea";
+            return new NotFoundException(`Task with id ${id} not found`); 
         }
         return taskFound;
     }

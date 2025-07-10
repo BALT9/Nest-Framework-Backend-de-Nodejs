@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://127.0.0.1:3000/tasks/1
+GET http://127.0.0.1:3000/tasks/3
 
 ###
 PUT http://127.0.0.1:3000/tasks
