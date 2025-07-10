@@ -5,7 +5,7 @@ POST http://127.0.0.1:3000/tasks
 Content-Type: application/json
 
 {
-    "titulo": "tarea 2",
+    "title": "coquito",
     "descripcion": "lorem dolor",
     "fecha": "13 marzo"
 }
@@ -18,9 +18,8 @@ PUT http://127.0.0.1:3000/tasks/1
 Content-Type: application/json
 
 {
-    "titulo": "tarea 2",
-    "descripcion": "lorem dolor",
-    "fecha": "13 marzo"
+    "title": "tarea 2",
+    "descripcion": "lorem dolor"
 }
 
 ###

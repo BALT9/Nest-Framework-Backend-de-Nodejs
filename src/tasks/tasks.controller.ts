@@ -21,6 +21,7 @@ export class TaskController{
     }
 
     @Post('/tasks')
+    //@UsePipes(new ValidationPipe()) //esto activa la validacion del dto
     createTask(@Body() task: CreateTaskDto){
         // crear tarea
         // console.log(task);
