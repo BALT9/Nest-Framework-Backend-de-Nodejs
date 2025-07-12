@@ -3,6 +3,9 @@ import { TasksServices, User } from "./tasks.service";
 import { CreateTaskDto } from "./dto/create-task.dto";
 import { UpdateTaskDto } from "./dto/update-task.dto";
 
+//pipes
+import { ValidateTaskPipe } from "./pipes/validate-task/validate-task.pipe";
+
 @Controller({})
 export class TaskController{
 
@@ -58,4 +61,11 @@ export class TaskController{
         return '404 not found';
     }
  
+    // pipe 
+    @Get('/greet')
+    greet(@Query(ValidateTaskPipe) query: {name:string, age:number}){
+        console.log(typeof query.age);
+        console.log(typeof query.name);
+        return `Hello ${query.name}, de ${query.age} años`;
+    }
 }
