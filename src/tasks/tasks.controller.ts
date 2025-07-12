@@ -1,10 +1,12 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Put, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Put, Query, UseGuards } from "@nestjs/common";
 import { TasksServices, User } from "./tasks.service";
 import { CreateTaskDto } from "./dto/create-task.dto";
 import { UpdateTaskDto } from "./dto/update-task.dto";
 
 //pipes
 import { ValidateTaskPipe } from "./pipes/validate-task/validate-task.pipe";
+// guard 
+import { AuthGuard } from "./guards/auth/auth.guard";
 
 @Controller({})
 export class TaskController{
@@ -63,6 +65,7 @@ export class TaskController{
  
     // pipe 
     @Get('/greet')
+    @UseGuards(AuthGuard)
     greet(@Query(ValidateTaskPipe) query: {name:string, age:number}){
         console.log(typeof query.age);
         console.log(typeof query.name);
