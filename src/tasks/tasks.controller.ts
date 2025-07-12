@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, Param, Patch, Post, Put, Query } from "@nestjs/common";
 import { TasksServices, User } from "./tasks.service";
 import { CreateTaskDto } from "./dto/create-task.dto";
 import { UpdateTaskDto } from "./dto/update-task.dto";
@@ -50,6 +50,12 @@ export class TaskController{
     updateTaskStatus(){
         // crear tarea
         return this.tasksService.updateTasksStatus();
+    }
+
+    @Get('/notfound')
+    @HttpCode(404)
+    notFoundPage(){
+        return '404 not found';
     }
  
 }
