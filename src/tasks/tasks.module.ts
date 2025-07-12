@@ -1,6 +1,9 @@
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
 import { TaskController } from "./tasks.controller";
 import { TasksServices } from "./tasks.service";
+
+// midleware 
+import { LoggerMiddleware } from "./logger/logger.middleware";
 
 // un modulo puede contener varios controladores 
 @Module({
@@ -8,4 +11,10 @@ import { TasksServices } from "./tasks.service";
     providers: [TasksServices]
 })
 
-export class TasksModule{}
+// aqui se agrega el midleware  
+
+export class TasksModule implements NestModule{
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(LoggerMiddleware).forRoutes('tasks')
+    }
+}
